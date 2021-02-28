@@ -53,7 +53,7 @@ APP.get('/equipment', (req, res) => {
 });
 
 APP.get('/addequipment', (req, res) => {
-    res.send('new')
+    res.render('new.ejs')
 
 });
 

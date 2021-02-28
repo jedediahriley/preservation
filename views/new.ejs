@@ -8,16 +8,23 @@
 </head>
 <body>
     <h1>Add Equipment</h1>
-    <form action="/fruits/<%= fruit.id %>?_method=PUT" method="POST">
-        PO Number: <input type="text" name="po" value="<%= equipmentpreservation.po %>"/><br/>
-        Equipment: <input type="text" name="color" value="<%= fruit.color %>"/><br/>
-        Is Ready To Eat: 
-        <input type="checkbox" name="readyToEat"
-            <% if(fruit.readyToEat === true) { %>
-                checked
-            <% } %>
-        /><br/>
-        <input type="submit" name="" value="Edit Fruit"/>
+    <form >
+        PO Number: <input type="text" name="po" /><br/>
+        Equipment: <input type="text" name="color" /><br/>
+        Tag #: <input type='text' name='tagNumber' /></br>
+        Receipt Inspection: <input type="checkbox" name="rInspection" /></br> 
+        Damage: <input type="checkbox" name="damage" /></br>
+        Maintenance Interval:</br>
+        Daily: <input type="checkbox" name="daily" /></br> Weekly: <input type="checkbox" name="weekly" /></br> Monthly: <input type="checkbox" name="monthly" /></br> Yearly: <input type="checkbox" name="yearly" /></br>   
+        Maintenance: <textarea></textarea></br>
+        Buyer:  <input type='text' name='buyer' /></br>
+        Buyer's Phone: <input type='text' name='bPhone' /></br>
+        Vendor: <input type='text' name='vendor' /></br>
+        Vendor's Phone <input type='text' name='poc' /></br>
+        Warehouse: <input type='text' name='warehouse' /></br>
+        Yard: <input type="checkbox" name="yard" /></br>
+        Indoor: <input type="checkbox" name="indoor" /></br>
+        <input type="submit" name="" value="Add Equipment"/>
     </form>
 </body>
 </html>
