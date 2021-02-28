@@ -21,8 +21,8 @@ mongoose.connect(mongoURI, {
 
 // Routes
 
-APP.get('/equipment', (req, res) => {
-    res.send('index')
+APP.get('/addequipment', (req, res) => {
+    res.send('asdw')
 
 });
 
