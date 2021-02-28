@@ -20,6 +20,33 @@ mongoose.connect(mongoURI, {
 });
 
 // Routes
+APP.get('/equipment/seed', (req, res) => {
+    Add.create([
+        {
+            po: '7-0987',
+            equipment: 'Generator',
+            tagNumber: 'FD-0987-01',
+            receiptInspection: true,
+            damage: false,
+            daily: false,
+            weekly: false,
+            monthly: true,
+            yearly: true,
+            maint: 'Rotate Shaft 2 1/4 turns. Connect Heater',
+            buyer: 'Ralph Waldo Emerson',
+            bPhone: '867-5309',
+            vendor: "Acme Generator Company",
+            poc: 'Jenny',
+            warehouse: "North Yard",
+            yard: true,
+            indoor: false
+        }
+    ], (error, data) => {
+        res.redirect('/equipment');
+    }
+    );
+});
+
 
 APP.get('/addequipment', (req, res) => {
     res.send('asdw')
