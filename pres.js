@@ -19,6 +19,9 @@ mongoose.connect(mongoURI, {
     console.log('connected to Mongo');
 });
 
+// middleware
+APP.use(express.urlencoded({extended: true}));
+
 // Routes
 APP.get('/equipment/seed', (req, res) => {
     Add.create([
@@ -47,7 +50,7 @@ APP.get('/equipment/seed', (req, res) => {
     );
 });
 
-APP.get('/equipment', (req, res) => {
+APP.get('/index', (req, res) => {
 
     res.send('index');
 });
@@ -55,6 +58,21 @@ APP.get('/equipment', (req, res) => {
 APP.get('/addequipment', (req, res) => {
     res.render('new.ejs')
 
+});
+
+APP.post('/equipment', (req, res) => {
+    
+    if(req.body.rInspection === 'on') {
+        req.body.rInspection = true;
+        
+    
+    }else
+
+        req.body.rInspection = false;
+        
+
+    console.log(req.body);
+    res.send(req.body);
 });
 
 APP.listen(PORT, () => {
