@@ -4,27 +4,25 @@ const PORT = 3000;
 
 // Dependencies
 const mongoose = require('mongoose');
-const Add = require('./models/addequip.js');
+
+// Models
+const Equipment = require('./models/addequip.js');
 
 // Global configuration
-const mongoURI = 'mongodb://localhost:27017/equipmentpreservation'
-const db = mongoose.connection;
+mongoose.connect('mongodb://localhost:27017/preservation', {useNewUrlParser: true});
+mongoose.connection.once('open', () => {
+    console.log('connected to Mongo')
+})
 
-// Connecting to Mongo
-mongoose.connect(mongoURI, {
-    useFindAndModify: false,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-},  () => {
-    console.log('connected to Mongo');
-});
+
+
 
 // middleware
 APP.use(express.urlencoded({extended: true}));
 
 // Routes
 APP.get('/equipment/seed', (req, res) => {
-    Add.create([
+    Equipment.create([
         {
             po: '7-0987',
             equipment: 'Generator',
@@ -50,29 +48,35 @@ APP.get('/equipment/seed', (req, res) => {
     );
 });
 
-APP.get('/index', (req, res) => {
 
-    res.send('index');
-});
+APP.get('/equipment', (req, res) => {
+    res.render('index.ejs')
+})
 
-APP.get('/addequipment', (req, res) => {
+// new
+APP.get('/equipment/add', (req, res) => {
     res.render('new.ejs')
 
 });
 
+// create
 APP.post('/equipment', (req, res) => {
     
     if(req.body.rInspection === 'on') {
         req.body.rInspection = true;
         
     
-    }else
+    }else {
 
         req.body.rInspection = false;
-        
+    }
 
     console.log(req.body);
-    res.send(req.body);
+    Equipment.create(req.body, (error, addEquip) => {
+        
+        res.send(req.body);
+        console.log(addEquip);
+    });
 });
 
 APP.listen(PORT, () => {

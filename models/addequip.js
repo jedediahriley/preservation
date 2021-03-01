@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const addEquipSchema = new Schema({
     po: { type: String, required: true},
     equipment: {type: String, required: true},
-    tagNumber: {type: String, required: true},
+    tagNumber: {type: String, required: true}, 
     receiptInspection: {type: Boolean},
     damage: {type: String},
     daily: {type: Boolean},
@@ -21,6 +21,6 @@ const addEquipSchema = new Schema({
     indoor: {type: Boolean},
 });
 
-const Add = mongoose.model('Add', addEquipSchema);
+const Equipment = mongoose.model('Equipment', addEquipSchema);
 
-module.exports = Add;
+module.exports = Equipment;
