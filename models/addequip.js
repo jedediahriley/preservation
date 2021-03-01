@@ -21,6 +21,6 @@ const addEquipSchema = new Schema({
     indoor: {type: Boolean},
 });
 
-const Equipment = mongoose.model('Equipment', addEquipSchema);
+const addEquipment = mongoose.model('Equipment', addEquipSchema);
 
-module.exports = Equipment;
+module.exports = addEquipment;

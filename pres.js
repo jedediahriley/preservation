@@ -43,6 +43,7 @@ APP.get('/equipment/seed', (req, res) => {
             indoor: false
         }
     ], (error, data) => {
+
         res.redirect('/equipment');
     }
     );
@@ -50,8 +51,11 @@ APP.get('/equipment/seed', (req, res) => {
 
 
 APP.get('/equipment', (req, res) => {
+   
     res.render('index.ejs')
-})
+    
+});
+
 
 // new
 APP.get('/equipment/add', (req, res) => {
@@ -71,11 +75,86 @@ APP.post('/equipment', (req, res) => {
         req.body.rInspection = false;
     }
 
+    if(req.body.damage === 'on') {
+        req.body.damage = true;
+        
+    
+    }else {
+
+        req.body.damage = false;
+    }
+
+    if(req.body.daily === 'on') {
+        req.body.daily = true;
+        
+    
+    }else {
+
+        req.body.daily = false;
+    }
+
+    if(req.body.weekly === 'on') {
+        req.body.weekly = true;
+        
+    
+    }else {
+
+        req.body.weekly = false;
+    }
+
+    if(req.body.monthly === 'on') {
+        req.body.monthly = true;
+        
+    
+    }else {
+
+        req.body.monthly = false;
+    }
+
+    if(req.body.yearly === 'on') {
+        req.body.yearly = true;
+        
+    
+    }else {
+
+        req.body.yearly = false;
+    }
+
+    if(req.body.rInspection === 'on') {
+        req.body.rInspection = true;
+        
+    
+    }else {
+
+        req.body.rInspection = false;
+    }
+
+    if(req.body.yard === 'on') {
+        req.body.yard = true;
+        
+    
+    }else {
+
+        req.body.yard = false;
+    }
+
+    if(req.body.indoor === 'on') {
+        req.body.indoor = true;
+        
+    
+    }else {
+
+        req.body.indoor = false;
+    }
+
     console.log(req.body);
     Equipment.create(req.body, (error, addEquip) => {
-        
+       if(error) {
+           console.log(error)
+       } else {
         res.send(req.body);
         console.log(addEquip);
+    }
     });
 });
 
