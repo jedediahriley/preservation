@@ -51,8 +51,14 @@ APP.get('/equipment/seed', (req, res) => {
 
 
 APP.get('/equipment', (req, res) => {
-   
-    res.render('index.ejs')
+   Equipment.find({}, (error, equip) => {
+    console.log(equip)
+    res.render('index.ejs', {
+        equipTag: equip
+    })
+   });
+    
+    
     
 });
 

@@ -9,7 +9,11 @@
 <body>
     <h1>Equipment Index</h1>
     <ul>
-       <li>hello</li>
+        <% for (let i = 0; i < equipTag.length; i++) { %>
+        
+            <li><%= equipTag[i].tagNumber %></li>
+        
+       <% } %>
     </ul>
 </body>
 </html>
