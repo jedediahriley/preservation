@@ -16,17 +16,30 @@
         <label name="tagNumber" class="tagNumber">Tag Number</label>
         <input type='text' name = 'tagNumber' value="<%= allEquip.tagNumber %>" />
         <label name="receiptInspection" class="receiptInspection">Receipt Inspection</label>
-        <input type='checkbox' name = 'receiptInspection'  checked = '<% allEquip.receiptInspection%>' />
+            <% if(allEquip.receiptInspection === true) { %>
+        <input type='checkbox' name = 'receiptInspection'  checked = '' />
+                
+            <% } %>
         <label name="damage" class="damage">Damage</label>
-        <input type='checkbox' name = 'receiptInspection'  checked = '<% allEquip.damage%>' />
+            <% if(allEquip.damage === true) { %>
+        <input type='checkbox' name = 'receiptInspection'  checked = '' />
+            <% } %>
         <label name="daily" class="daily">Daily</label>
-        <input type='checkbox' name = 'daily'  checked = '<% allEquip.daily%>' />
+            <% if(allEquip.daily === true) { %>
+        <input type='checkbox' name = 'daily'  checked = '' />
+            <% } %>
         <label name="weekly" class="weekly">Weekly</label>
-        <input type='checkbox' name = 'weekly'  checked = '<% allEquip.weekly%>' />
+            <% if(allEquip.weekly === true) { %>
+        <input type='checkbox' name = 'weekly'  checked = '' />
+            <% } %>
         <label name="monthly" class="monthly">Monthly</label>
-        <input type='checkbox' name = 'monthly'  checked = '<% allEquip.monthly%>' />
+            <% if(allEquip.monthly === true) { %>
+        <input type='checkbox' name = 'monthly'  checked = '' />
+            <% } %>
         <label name="yearly" class="yearly">Yearly</label>
-        <input type='checkbox' name = 'yearly'  checked = '<% allEquip.yearly%>' />
+            <% if(allEquip.yearly === true) { %>
+        <input type='checkbox' name = 'yearly'  checked = '' />
+            <% } %>
         <label name='maint' class='maint'>Preservation Instructions</label>
         <textarea><%= allEquip.maint %></textarea>
         <label name="buyer" class="buyer">Buyer</label>
@@ -40,10 +53,14 @@
         <label name="warehouse" class="warehouse">Warehouse</label>
         <input type='text' name = 'warehouse' value="<%= allEquip.warehouse %>" />
         <label name="yard" class="yard">Laydown Yard</label>
-        <input type='checkbox' name = 'yard'  checked = '<% allEquip.yard%>' />
+            <% if(allEquip.yard === true) { %>
+        <input type='checkbox' name = 'yard'  checked = '' />
+            <% } %>
         <label name="indoor" class="indoor">Indoor Storage</label>
-        <input type='checkbox' name = 'indoor'  checked = '<% allEquip.indoor%>' />
-        
+            <% if(allEquip.indoor === true) { %>
+        <input type='checkbox' name = 'indoor'  checked = '' />
+                
+            <% } %>
     </div>
 </body>
 </html>
