@@ -49,19 +49,29 @@ APP.get('/equipment/seed', (req, res) => {
     );
 });
 
-
+// index page
 APP.get('/equipment', (req, res) => {
    Equipment.find({}, (error, equip) => {
-    console.log(equip)
     res.render('index.ejs', {
         equipTag: equip
     })
    });
     
-    
-    
 });
 
+// equipment display page
+APP.get('/equipment/:id', (req, res) => {
+    Equipment.findById(req.params.id, (error, equip) => {
+        
+        res.render('show.ejs', {
+            
+            allEquip: equip
+            
+        });
+        
+    });
+    
+});
 
 // new
 APP.get('/equipment/add', (req, res) => {

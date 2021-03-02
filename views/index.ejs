@@ -10,8 +10,10 @@
     <h1>Equipment Index</h1>
     <ul>
         <% for (let i = 0; i < equipTag.length; i++) { %>
-        
-            <li><%= equipTag[i].tagNumber %></li>
+            <%= console.log(equipTag[i]) %>
+            <li><a href="/equipment/<%=equipTag[i]._id; %>">
+                <%= equipTag[i].tagNumber %></a>
+            </li>
         
        <% } %>
     </ul>
