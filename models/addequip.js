@@ -6,7 +6,7 @@ const addEquipSchema = new Schema({
     equipment: {type: String, required: true},
     tagNumber: {type: String, required: true}, 
     receiptInspection: {type: Boolean},
-    damage: {type: String},
+    damage: {type: Boolean},
     daily: {type: Boolean},
     weekly: {type: Boolean},
     monthly: {type: Boolean},

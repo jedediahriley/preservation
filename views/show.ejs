@@ -9,8 +9,41 @@
 <body>
     <h1>Preservation Information:</h1>
     <div class="container">
-        <label name="po">PO</label>
+        <label name="po" class="po">PO</label>
         <input type='text' name = 'po' value="<%= allEquip.po %>" />
+        <label name="equipment" class="equipment">Equipment</label>
+        <input type='text' name = 'equipment' value="<%= allEquip.equipment %>" />
+        <label name="tagNumber" class="tagNumber">Tag Number</label>
+        <input type='text' name = 'tagNumber' value="<%= allEquip.tagNumber %>" />
+        <label name="receiptInspection" class="receiptInspection">Receipt Inspection</label>
+        <input type='checkbox' name = 'receiptInspection'  checked = '<% allEquip.receiptInspection%>' />
+        <label name="damage" class="damage">Damage</label>
+        <input type='checkbox' name = 'receiptInspection'  checked = '<% allEquip.damage%>' />
+        <label name="daily" class="daily">Daily</label>
+        <input type='checkbox' name = 'daily'  checked = '<% allEquip.daily%>' />
+        <label name="weekly" class="weekly">Weekly</label>
+        <input type='checkbox' name = 'weekly'  checked = '<% allEquip.weekly%>' />
+        <label name="monthly" class="monthly">Monthly</label>
+        <input type='checkbox' name = 'monthly'  checked = '<% allEquip.monthly%>' />
+        <label name="yearly" class="yearly">Yearly</label>
+        <input type='checkbox' name = 'yearly'  checked = '<% allEquip.yearly%>' />
+        <label name='maint' class='maint'>Preservation Instructions</label>
+        <textarea><%= allEquip.maint %></textarea>
+        <label name="buyer" class="buyer">Buyer</label>
+        <input type='text' name = 'buyer' value="<%= allEquip.buyer %>" />
+        <label name="bPhone" class="bPhone">Buyer's Phone</label>
+        <input type='text' name = 'bPhone' value="<%= allEquip.bPhone %>" />
+        <label name="vendor" class="vendor">Vendor</label>
+        <input type='text' name = 'vendor' value="<%= allEquip.vendor %>" />
+        <label name="poc" class="poc">Vendor Point of Contact</label>
+        <input type='text' name = 'poc' value="<%= allEquip.poc %>" />
+        <label name="warehouse" class="warehouse">Warehouse</label>
+        <input type='text' name = 'warehouse' value="<%= allEquip.warehouse %>" />
+        <label name="yard" class="yard">Laydown Yard</label>
+        <input type='checkbox' name = 'yard'  checked = '<% allEquip.yard%>' />
+        <label name="indoor" class="indoor">Indoor Storage</label>
+        <input type='checkbox' name = 'indoor'  checked = '<% allEquip.indoor%>' />
+        
     </div>
 </body>
 </html>
