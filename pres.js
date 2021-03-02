@@ -169,13 +169,14 @@ APP.post('/equipment', (req, res) => {
        if(error) {
            console.log(error)
        } else {
-        res.send(req.body);
+        // res.send(req.body);
         console.log(addEquip);
+        res.redirect('/equipment')
         
     }
         
     });
-    res.redirect('/equipment')
+    
 });
 
 APP.listen(PORT, () => {
