@@ -9,6 +9,10 @@
 <body>
     <h1>Preservation Information:</h1>
     <div class="container">
+       
+            
+
+    <form action="/equipment/<%=allEquip._id%>?_method=PUT" method="POST">
         <label name="po" class="po">PO</label>
         <input type='text' name = 'po' value="<%= allEquip.po %>" />
         <label name="equipment" class="equipment">Equipment</label>
@@ -53,14 +57,22 @@
         <label name="warehouse" class="warehouse">Warehouse</label>
         <input type='text' name = 'warehouse' value="<%= allEquip.warehouse %>" />
         <label name="yard" class="yard">Laydown Yard</label>
-            <% if(allEquip.yard === true) { %>
-        <input type='checkbox' name = 'yard'  checked = '' />
+            
+        <input type='checkbox' name = 'yard'   />
+        <% if(allEquip.yard === true) { %>
             <% } %>
         <label name="indoor" class="indoor">Indoor Storage</label>
-            <% if(allEquip.indoor === true) { %>
-        <input type='checkbox' name = 'indoor'  checked = '' />
-                
+            
+        <input type='checkbox' name = 'indoor'   />
+        <% if(allEquip.indoor === true) { %>
+                checked
             <% } %>
+        <input type="submit" name="" value="Submit Changes"/>
+    </form>
+    <form action="/equipment/<%=allEquip._id; %>?_method=Delete" method="POST">
+        <input  type="submit" value="Delete">
+    </form>
     </div>
+
 </body>
 </html>

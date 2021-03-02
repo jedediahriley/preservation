@@ -1,6 +1,7 @@
 const express = require('express');
 const APP = express();
 const PORT = 3000;
+const methodOverride = require('method-override');
 
 // Dependencies
 const mongoose = require('mongoose');
@@ -19,6 +20,7 @@ mongoose.connection.once('open', () => {
 
 // middleware
 APP.use(express.urlencoded({extended: true}));
+APP.use(methodOverride('_method'))
 
 // Routes
 APP.get('/equipment/seed', (req, res) => {
@@ -64,6 +66,10 @@ APP.get('/equipment/add', (req, res) => {
     res.render('new.ejs')
    
 });
+
+
+
+
 
 // equipment display page
 APP.get('/equipment/:id', (req, res) => {
@@ -164,19 +170,115 @@ APP.post('/equipment', (req, res) => {
         req.body.indoor = false;
     }
 
-    console.log(req.body);
+    
     Equipment.create(req.body, (error, addEquip) => {
        if(error) {
            console.log(error)
        } else {
-        // res.send(req.body);
-        console.log(addEquip);
+       
         res.redirect('/equipment')
         
     }
         
     });
     
+});
+
+// Create Edit Route
+APP.put('/equipment/:id', (req, res) => {
+    if(req.body.rInspection === 'on') {
+        req.body.rInspection = true;
+        
+    
+    }else {
+
+        req.body.rInspection = false;
+    }
+
+    if(req.body.damage === 'on') {
+        req.body.damage = true;
+        
+    
+    }else {
+
+        req.body.damage = false;
+    }
+
+    if(req.body.daily === 'on') {
+        req.body.daily = true;
+        
+    
+    }else {
+
+        req.body.daily = false;
+    }
+
+    if(req.body.weekly === 'on') {
+        req.body.weekly = true;
+        
+    
+    }else {
+
+        req.body.weekly = false;
+    }
+
+    if(req.body.monthly === 'on') {
+        req.body.monthly = true;
+        
+    
+    }else {
+
+        req.body.monthly = false;
+    }
+
+    if(req.body.yearly === 'on') {
+        req.body.yearly = true;
+        
+    
+    }else {
+
+        req.body.yearly = false;
+    }
+
+    if(req.body.rInspection === 'on') {
+        req.body.rInspection = true;
+        
+    
+    }else {
+
+        req.body.rInspection = false;
+    }
+
+    if(req.body.yard === 'on') {
+        req.body.yard = true;
+        
+    
+    }else {
+
+        req.body.yard = false;
+    }
+
+    if(req.body.indoor === 'on') {
+        req.body.indoor = true;
+        
+    
+    }else {
+
+        req.body.indoor = false;
+    }
+    
+    Equipment.findByIdAndUpdate(req.params.id, req.body,  (err, updateModel) => {
+        console.log(err)
+        res.redirect('/equipment')
+    });
+});
+
+// Delete Route
+APP.delete('/equipment/:id', (req, res) => {
+    Equipment.findByIdAndRemove(req.params.id, (err, data) => {
+        
+        res.redirect('/equipment');
+    });
 });
 
 APP.listen(PORT, () => {
