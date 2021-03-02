@@ -59,25 +59,26 @@ APP.get('/equipment', (req, res) => {
     
 });
 
+// new
+APP.get('/equipment/add', (req, res) => {
+    res.render('new.ejs')
+   
+});
+
 // equipment display page
 APP.get('/equipment/:id', (req, res) => {
     Equipment.findById(req.params.id, (error, equip) => {
         
-        res.render('show.ejs', {
-            
-            allEquip: equip
-            
-        });
         
+    
+         res.render('show.ejs', {
+             allEquip: equip
+         });
+       
     });
     
 });
 
-// new
-APP.get('/equipment/add', (req, res) => {
-    res.render('new.ejs')
-
-});
 
 // create
 APP.post('/equipment', (req, res) => {
@@ -170,8 +171,11 @@ APP.post('/equipment', (req, res) => {
        } else {
         res.send(req.body);
         console.log(addEquip);
+        
     }
+        
     });
+    res.redirect('/equipment')
 });
 
 APP.listen(PORT, () => {
