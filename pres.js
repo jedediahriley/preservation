@@ -1,19 +1,29 @@
-const express = require('express');
-const APP = express();
-const PORT = 3000;
-const methodOverride = require('method-override');
+
+
+
+
 
 // Dependencies
+const express = require('express');
+const methodOverride = require('method-override');
 const mongoose = require('mongoose');
+const APP = express();
+const DB = mongoose.connection
+
+// Port
+const PORT = process.env.PORT || 3000;
 
 // Models
 const Equipment = require('./models/addequip.js');
 
-// Global configuration
-mongoose.connect('mongodb://localhost:27017/preservation', {useNewUrlParser: true});
-mongoose.connection.once('open', () => {
-    console.log('connected to Mongo')
-})
+// Database Connection
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + 'preservation';
+
+// Connect to Mongo
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+
+// Opening the connection to mongo
+DB.on('open' , ()=>{});
 
 
 
@@ -268,7 +278,7 @@ APP.put('/equipment/:id', (req, res) => {
     }
     
     Equipment.findByIdAndUpdate(req.params.id, req.body,  (err, updateModel) => {
-        console.log(err)
+        
         res.redirect('/equipment')
     });
 });

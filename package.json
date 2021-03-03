@@ -1,8 +1,12 @@
 {
   "name": "preservation",
   "version": "1.0.0",
+  "engines": {
+    "node": "15.6.0"
+  },
   "description": "",
   "main": "pres.js",
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
