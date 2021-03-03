@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 
 
 // Database Connection
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/' + 'preservation';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/preservation';
 
 // Connect to Mongo
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
