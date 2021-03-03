@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const APP = express();
 const DB = mongoose.connection
-
+require('dotenv').config()
 //Controllers
 const equipController = require('./controllers/server.js');
 
