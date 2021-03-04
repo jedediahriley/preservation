@@ -4,19 +4,10 @@
 
 const express = require('express');
 const APP = express();
-
-
-
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
-
 const DB = mongoose.connection
 require('dotenv').config()
-
-
-
-
-
 
 
 //Controllers

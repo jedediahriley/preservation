@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Equipment = require('../models/addequip.js')
+const Equipment = require('../models/addequip.js');
+
 
 
 
@@ -35,6 +36,8 @@ router.get('/seed', (req, res) => {
     );
 });
 
+
+
 // index page
 router.get('/', (req, res) => {
     
@@ -45,11 +48,6 @@ router.get('/', (req, res) => {
     });
      
  });
-
-router.get('/photos', (req, res) => {
-    
-    res.render('photos.ejs');
-});
 
 
  // new
