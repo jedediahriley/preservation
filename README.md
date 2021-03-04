@@ -26,3 +26,6 @@ New functionality to be added:
 -Allow the User to search the data base by entering information for specific equipment or tag number
 
 
+LINK TO THE PROJECT
+
+https://lit-beyond-69270.herokuapp.com/ 
