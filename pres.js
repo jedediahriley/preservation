@@ -1,14 +1,10 @@
 
 
 // Dependencies
-// file upload
 
 const express = require('express');
 const APP = express();
-const multer = require('multer');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
+
 
 
 const methodOverride = require('method-override');
@@ -17,21 +13,10 @@ const mongoose = require('mongoose');
 const DB = mongoose.connection
 require('dotenv').config()
 
-// upload file path
-const FILE_PATH = 'uploads';
 
-// configure multer
-const upload = multer({
-    dest: `${FILE_PATH}/`
-});
 
-// enable CORS
-APP.use(cors());
 
-// add other middleware
-APP.use(bodyParser.json());
-APP.use(bodyParser.urlencoded({ extended: true }));
-APP.use(morgan('dev'));
+
 
 
 //Controllers
