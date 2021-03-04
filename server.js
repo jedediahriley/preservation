@@ -20,7 +20,7 @@ require('dotenv').config()
 
 
 //Controllers
-const equipController = require('./controllers/server.js');
+const equipController = require('./controllers/equipment.js');
 
 
 // Port
