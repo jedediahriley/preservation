@@ -46,6 +46,12 @@ router.get('/', (req, res) => {
      
  });
 
+router.get('/photos', (req, res) => {
+    
+    res.render('photos.ejs');
+});
+
+
  // new
 router.get('/add', (req, res) => {
     res.render('new.ejs')
@@ -157,6 +163,8 @@ router.post('/', (req, res) => {
     
 });
 
+
+
 // Create Edit Route
 router.put('/:id', (req, res) => {
     if(req.body.receiptInspection === 'on') {
@@ -241,6 +249,8 @@ router.put('/:id', (req, res) => {
         }
     });
 });
+
+
 
 // Delete Route
 router.delete('/:id', (req, res) => {

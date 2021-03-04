@@ -23,29 +23,43 @@
         <label name="tagNumber" class="tagNumber">Tag Number</label>
         <input type='text' name = 'tagNumber' value="<%= allEquip.tagNumber %>" />
         <label name="receiptInspection" class="receiptInspection">Receipt Inspection</label>
-        <% if(allEquip.receiptInspection === true) { %>
-        <input type='checkbox' name = 'receiptInspection' checked = ""  /> 
-        <% } %>
+        
+        <input type='checkbox' name = 'receiptInspection'
+            <% if(allEquip.receiptInspection === true) { %>
+                checked
+            <% } %>
+        /> 
+        
         <label name="damage" class="damage">Damage</label>
-        <% if(allEquip.damage === true) { %>
-        <input type='checkbox' name = 'damage' checked = "" />
-        <% } %>
+        <input type='checkbox' name = 'damage' 
+            <% if(allEquip.damage === true) { %>
+                checked
+            <% } %>    
+        />
         <label name="daily" class="daily">Daily</label>
-        <% if(allEquip.daily === true) { %>
-        <input type='checkbox' name = 'daily'  checked = "" />
-        <% } %>
-        <label name="weekly" class="weekly">Weekly</label>
-        <% if(allEquip.weekly === true) { %>  
-        <input type='checkbox' name = 'weekly'  checked = "" />
-        <% } %>
-        <label name="monthly" class="monthly">Monthly</label>
-        <% if(allEquip.monthly === true) { %>   
-        <input type='checkbox' name = 'monthly' checked = ""  />
-        <% } %>
-        <label name="yearly" class="yearly">Yearly</label>
-        <% if(allEquip.yearly === true) { %>   
-        <input type='checkbox' name = 'yearly' checked = ""  />
-        <% } %>
+        <input type='checkbox' name = 'daily'
+            <% if(allEquip.daily === true) { %>
+                checked
+            <% } %>
+        />      
+        <label name="weekly" class="weekly">Weekly</label> 
+        <input type='checkbox' name = 'weekly' 
+            <% if(allEquip.weekly === true) { %>
+                checked
+            <% } %>   
+        />
+        <label name="monthly" class="monthly">Monthly</label>  
+        <input type='checkbox' name = 'monthly' 
+            <% if(allEquip.monthly === true) { %>
+                checked
+            <% } %>    
+        />
+        <label name="yearly" class="yearly">Yearly</label>  
+        <input type='checkbox' name = 'yearly' 
+            <% if(allEquip.yearly === true) { %>
+                checked
+            <% } %>   
+        />
         <label name='maint' class='maint'>Preservation Instructions</label>
         <textarea><%= allEquip.maint %></textarea>
         <label name="buyer" class="buyer">Buyer</label>
@@ -59,13 +73,21 @@
         <label name="warehouse" class="warehouse">Warehouse</label>
         <input type='text' name = 'warehouse' value="<%= allEquip.warehouse %>" />
         <label name="yard" class="yard">Laydown Yard</label>
-        <% if(allEquip.yard === true) { %>   
-        <input type='checkbox' name = 'yard' checked = ""  />
-        <% } %>
+         
+        <input type='checkbox' name='yard' 
+            <% if(allEquip.yard === true) { %> 
+                checked
+            <% } %>
+        />
+        
         <label name="indoor" class="indoor">Indoor Storage</label>
-        <% if(allEquip.indoor === true) { %>   
-        <input type='checkbox' name = 'indoor' checked = ""  /></br>
-        <% } %>
+           
+        <input type='checkbox' name='indoor' 
+            <% if(allEquip.indoor === true) { %>
+            checked
+            <% } %>   
+        /></br>
+        
         <input type="submit" name="" value="Submit Changes"/>
     </form>
     <form action="/equipment/<%=allEquip._id; %>?_method=Delete" method="POST">
